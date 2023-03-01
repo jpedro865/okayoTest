@@ -1,5 +1,6 @@
 import { DataTypes } from 'sequelize';
 import sequelize from '../instance';
+import Facture from './Facture';
 
 const Emetteur = sequelize.define('Emetteur', {
   id: {
@@ -26,5 +27,7 @@ const Emetteur = sequelize.define('Emetteur', {
     allowNull: false,
   },
 });
+
+Emetteur.hasMany(Facture);
 
 export default Emetteur;

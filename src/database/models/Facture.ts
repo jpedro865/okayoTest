@@ -1,5 +1,8 @@
 import { DataTypes } from 'sequelize';
 import sequelize from '../instance';
+import Client from './Client';
+import Emetteur from './Emetteur';
+import Prestations from './Prestations';
 
 const Facture = sequelize.define('Facture', {
   id: {
@@ -22,5 +25,9 @@ const Facture = sequelize.define('Facture', {
     allowNUll: false,
   }
 });
+
+Facture.hasOne(Emetteur);
+Facture.hasOne(Client);
+Facture.hasMany(Prestations);
 
 export default Facture;
